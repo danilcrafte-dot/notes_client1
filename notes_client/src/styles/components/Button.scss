@@ -1,0 +1,84 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Кнопка
+.btn {
+  @include flex(row, center, center, space(sm));
+  padding: space(sm) space(md);
+  font-weight: 600;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: $radius;
+  cursor: pointer;
+  transition: background $transition, border-color $transition, opacity $transition;
+  @include focus-ring;
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  &--sm {
+    padding: space(xs) space(sm);
+    font-size: 0.875rem;
+  }
+
+  &--primary {
+    color: var(--on-primary);
+    background: var(--primary);
+
+    &:hover:not(:disabled) {
+      background: var(--primary-hover);
+    }
+  }
+
+  &--secondary {
+    background: var(--surface);
+    border-color: var(--border);
+
+    &:hover:not(:disabled) {
+      border-color: var(--primary);
+    }
+  }
+
+  &--ghost {
+    color: var(--primary);
+
+    &:hover:not(:disabled) {
+      background: var(--chip-bg);
+    }
+  }
+
+  &--danger {
+    color: #fff;
+    background: var(--danger);
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+  }
+
+  &--ghost-danger {
+    color: var(--danger);
+
+    &:hover:not(:disabled) {
+      background: var(--danger-bg);
+    }
+  }
+
+  &__spinner {
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: btn-spin 0.7s linear infinite;
+  }
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

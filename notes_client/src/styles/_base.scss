@@ -1,0 +1,53 @@
+// Глобальні стилі: типографіка, контейнер, службові класи.
+@use 'variables' as *;
+@use 'mixins' as *;
+
+html {
+  font-size: $font-size-base;
+}
+
+body {
+  font-family: $font-family;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--primary);
+}
+
+.container {
+  width: 100%;
+  max-width: $container-width;
+  margin-inline: auto;
+  padding-inline: space(md);
+}
+
+.page-header {
+  @include flex(column, flex-start, stretch, space(md));
+  margin-bottom: space(lg);
+
+  &__title {
+    font-size: 1.6rem;
+  }
+
+  &__count {
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  @include respond-to(sm) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}

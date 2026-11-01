@@ -1,0 +1,50 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Навігаційна панель
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+
+  &__inner {
+    @include flex(row, space-between, center, space(md));
+    flex-wrap: wrap;
+    padding-block: space(sm);
+  }
+
+  &__brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  &__links {
+    @include flex(row, flex-start, center, space(xs));
+    order: 3;
+    width: 100%;
+
+    @include respond-to(md) {
+      order: 0;
+      width: auto;
+    }
+  }
+
+  &__link {
+    padding: space(xs) space(md);
+    color: var(--muted);
+    text-decoration: none;
+    border-radius: $radius;
+    @include focus-ring;
+
+    &:hover {
+      color: var(--text);
+    }
+
+    &--active {
+      color: var(--primary);
+      background: var(--chip-bg);
+    }
+  }
+}

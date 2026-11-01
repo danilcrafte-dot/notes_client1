@@ -1,0 +1,56 @@
+// Міксини та функції, що повторно використовуються у стилях компонентів.
+@use 'sass:map';
+@use 'variables' as *;
+
+@function space($key) {
+  @return map.get($space, $key);
+}
+
+// Адаптивність: @include respond-to(md) { ... } діє від ширини 768px
+@mixin respond-to($breakpoint) {
+  @media (min-width: map.get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  box-shadow: var(--shadow);
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+}
+
+// Обрізання тексту до N рядків
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin control {
+  width: 100%;
+  padding: space(sm) space(md);
+  font: inherit;
+  color: var(--text);
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: $radius;
+  transition: border-color $transition, box-shadow $transition;
+  @include focus-ring;
+}

@@ -1,0 +1,10 @@
+// Генерує класи .theme-light / .theme-dark з CSS-змінними на основі карти $themes.
+@use 'variables' as *;
+
+@each $name, $tokens in $themes {
+  .theme-#{$name} {
+    @each $key, $value in $tokens {
+      --#{$key}: #{$value};
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Сторінка створення / редагування нотатки
+.note-form {
+  @include card;
+  @include flex(column, flex-start, stretch, space(md));
+  max-width: 720px;
+  padding: space(lg);
+
+  &__error {
+    color: var(--danger);
+    font-size: 0.85rem;
+  }
+
+  &__actions {
+    @include flex(row, flex-start, center, space(sm));
+    flex-wrap: wrap;
+  }
+
+  &__hint {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+}
+
+.note-form-page .page-header__title {
+  margin-bottom: space(lg);
+}

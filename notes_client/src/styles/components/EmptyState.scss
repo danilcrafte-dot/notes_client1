@@ -1,0 +1,18 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Порожній стан
+.empty-state {
+  @include flex(column, center, center, space(sm));
+  padding: space(xl) space(md);
+  text-align: center;
+
+  &__title {
+    font-size: 1.2rem;
+  }
+
+  &__text {
+    max-width: 420px;
+    color: var(--muted);
+  }
+}

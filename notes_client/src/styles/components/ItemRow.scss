@@ -1,0 +1,47 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Рядок довідника (категорія / тег)
+.item-row {
+  @include card;
+  @include flex(column, flex-start, stretch, space(sm));
+  padding: space(md);
+
+  &__main {
+    @include flex(row, flex-start, baseline, space(sm));
+    flex-wrap: wrap;
+  }
+
+  &__name {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  &__count {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  &__desc {
+    width: 100%;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+  }
+
+  &__form {
+    @include flex(column, flex-start, stretch, space(sm));
+    width: 100%;
+  }
+
+  &__actions {
+    @include flex(row, flex-start, center, space(xs));
+  }
+
+  @include respond-to(sm) {
+    &:not(.item-row--editing) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

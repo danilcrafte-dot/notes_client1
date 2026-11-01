@@ -1,0 +1,36 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Сторінка списку нотаток
+.filters {
+  @include flex(column, flex-start, stretch, space(sm));
+  margin-bottom: space(lg);
+
+  @include respond-to(md) {
+    flex-direction: row;
+    align-items: center;
+
+    .select {
+      min-width: 180px;
+    }
+  }
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: space(md);
+  transition: opacity $transition;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &--loading {
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,47 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Тег
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--chip-text);
+  background: var(--chip-bg);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  overflow: hidden;
+
+  &__label {
+    padding: 2px space(sm);
+
+    &--button {
+      color: inherit;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      @include focus-ring;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__remove {
+    padding: 2px space(sm) 2px 0;
+    color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    @include focus-ring;
+
+    &:hover {
+      color: var(--danger);
+    }
+  }
+
+  &--active {
+    border-color: var(--primary);
+  }
+}

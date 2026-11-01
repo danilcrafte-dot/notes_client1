@@ -1,0 +1,12 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Рядок пошуку
+.search-bar {
+  flex: 1;
+  min-width: 0;
+
+  &__input {
+    @include control;
+  }
+}

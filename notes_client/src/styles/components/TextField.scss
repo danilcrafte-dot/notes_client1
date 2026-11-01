@@ -1,0 +1,30 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Текстове поле
+.field {
+  @include flex(column, flex-start, stretch, space(xs));
+
+  &__label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  &__required {
+    color: var(--danger);
+  }
+
+  &__control {
+    @include control;
+    resize: vertical;
+  }
+
+  &__error {
+    color: var(--danger);
+    font-size: 0.85rem;
+  }
+
+  &--error &__control {
+    border-color: var(--danger);
+  }
+}

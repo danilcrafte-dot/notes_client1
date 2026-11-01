@@ -1,0 +1,22 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Каркас сторінки
+.app {
+  @include flex(column);
+  min-height: 100vh;
+  color: var(--text);
+  background: var(--bg);
+
+  &__main {
+    flex: 1;
+    padding-block: space(lg);
+  }
+
+  &__footer {
+    padding-block: space(md);
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+}

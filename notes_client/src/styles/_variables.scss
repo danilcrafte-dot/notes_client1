@@ -1,0 +1,30 @@
+// Змінні дизайн-системи: шрифти, відступи, радіуси, брейкпоінти та кольорові теми.
+$font-family: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-size-base: 16px;
+
+$space: (xs: 4px, sm: 8px, md: 16px, lg: 24px, xl: 40px);
+$radius: 8px;
+$radius-lg: 14px;
+$container-width: 1100px;
+$transition: 0.15s ease;
+
+// Мобільний підхід (mobile first): стилі діють від зазначеної ширини
+$breakpoints: (sm: 576px, md: 768px, lg: 1024px);
+
+// Кольори тем. Перетворюються на CSS-змінні (--bg, --text, ...) у _themes.scss
+$themes: (
+  light: (
+    bg: #f4f5fa, surface: #ffffff, text: #1f2330, muted: #6b7280, border: #e2e5ee,
+    primary: #4f46e5, primary-hover: #4338ca, on-primary: #ffffff,
+    danger: #dc2626, danger-bg: #fee2e2,
+    chip-bg: #eef0ff, chip-text: #4338ca, input-bg: #ffffff,
+    shadow: 0 2px 10px rgba(31, 35, 48, 0.08), backdrop: rgba(15, 18, 30, 0.5)
+  ),
+  dark: (
+    bg: #12141c, surface: #1b1e29, text: #e8eaf2, muted: #9aa0b4, border: #2c3040,
+    primary: #818cf8, primary-hover: #a5b4fc, on-primary: #12141c,
+    danger: #f87171, danger-bg: #3b1d22,
+    chip-bg: #2a2f4a, chip-text: #c7d2fe, input-bg: #151824,
+    shadow: 0 2px 10px rgba(0, 0, 0, 0.4), backdrop: rgba(0, 0, 0, 0.65)
+  )
+);

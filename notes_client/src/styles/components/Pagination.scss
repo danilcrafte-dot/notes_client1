@@ -1,0 +1,13 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Пагінація
+.pagination {
+  @include flex(row, center, center, space(md));
+  margin-top: space(lg);
+
+  &__info {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+}

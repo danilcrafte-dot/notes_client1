@@ -1,0 +1,23 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Повідомлення про помилку
+.error-banner {
+  @include flex(column, flex-start, stretch, space(sm));
+  margin-bottom: space(md);
+  padding: space(md);
+  color: var(--text);
+  background: var(--danger-bg);
+  border: 1px solid var(--danger);
+  border-radius: $radius;
+
+  &__text p {
+    margin-top: space(xs);
+  }
+
+  @include respond-to(sm) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

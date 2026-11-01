@@ -1,0 +1,16 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Випадаючий список
+.select {
+  @include flex(column, flex-start, stretch, space(xs));
+
+  &__label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  &__control {
+    @include control;
+  }
+}

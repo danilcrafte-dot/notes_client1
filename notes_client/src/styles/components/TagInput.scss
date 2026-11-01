@@ -1,0 +1,44 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Введення тегів
+.tag-input {
+  @include flex(column, flex-start, stretch, space(xs));
+
+  &__label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  &__box {
+    @include flex(row, flex-start, center, space(xs));
+    flex-wrap: wrap;
+    padding: space(xs) space(sm);
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: $radius;
+
+    &:focus-within {
+      border-color: var(--primary);
+    }
+  }
+
+  &__input {
+    flex: 1;
+    min-width: 140px;
+    padding: space(xs);
+    color: var(--text);
+    background: transparent;
+    border: 0;
+    outline: none;
+  }
+
+  &__error {
+    color: var(--danger);
+    font-size: 0.85rem;
+  }
+
+  &--error &__box {
+    border-color: var(--danger);
+  }
+}

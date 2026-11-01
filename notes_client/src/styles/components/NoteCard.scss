@@ -1,0 +1,66 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Картка нотатки
+.note-card {
+  @include card;
+  @include flex(column, flex-start, stretch, space(sm));
+  padding: space(md);
+  transition: transform $transition, border-color $transition;
+
+  &:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  &__header {
+    @include flex(row, space-between, flex-start, space(sm));
+  }
+
+  &__title {
+    font-size: 1.05rem;
+    overflow-wrap: anywhere;
+  }
+
+  &__category {
+    flex-shrink: 0;
+    padding: 2px space(sm);
+    font-size: 0.75rem;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+
+  &__content {
+    color: var(--muted);
+    overflow-wrap: anywhere;
+    @include line-clamp(4);
+  }
+
+  &__tags {
+    @include flex(row, flex-start, center, space(xs));
+    flex-wrap: wrap;
+  }
+
+  &__footer {
+    @include flex(column, flex-start, stretch, space(xs));
+    margin-top: auto;
+    padding-top: space(sm);
+    border-top: 1px solid var(--border);
+
+    @include respond-to(sm) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__date {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  &__actions {
+    @include flex(row, flex-start, center, space(xs));
+  }
+}

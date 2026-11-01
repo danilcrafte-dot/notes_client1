@@ -1,0 +1,31 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Сторінки керування категоріями та тегами
+.manage-page {
+  max-width: 760px;
+
+  .page-header__title {
+    margin-bottom: space(lg);
+  }
+
+  &__form {
+    @include card;
+    @include flex(column, flex-start, stretch, space(md));
+    margin-bottom: space(lg);
+    padding: space(md);
+
+    @include respond-to(md) {
+      flex-direction: row;
+      align-items: flex-end;
+
+      .field {
+        flex: 1;
+      }
+    }
+  }
+
+  &__list {
+    @include flex(column, flex-start, stretch, space(sm));
+  }
+}
